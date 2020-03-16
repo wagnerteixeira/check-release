@@ -28,5 +28,7 @@ jobs:
         # The service account key which will be used for authentication.
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         
+    - run: gcloud info
+      
     - name: Deploy checkRelease
       run: gcloud functions deploy checkRelease --runtime nodejs8 --trigger-http --allow-unauthenticated
