@@ -1,8 +1,17 @@
 {
-    "name": "check-release",
-    "version": "0.0.1",
-    "dependencies": {
-        "firebase-admin": "^8.9.1",
-        "firebase-functions": "^3.3.0"
-    }
+  "name": "check-release",
+  "version": "0.0.1",
+  "description": "Function for check release",
+  "scripts": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.6.0"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wagnerteixeira/check-release.git"
+  }
 }

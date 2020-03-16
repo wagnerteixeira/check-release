@@ -1,45 +1,44 @@
 "use strict";
 
-const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
-admin.initializeApp(functions.config().firebase);
+admin.initializeApp();
 
-let db = admin.firestore();
+let firestore = admin.firestore();
 
 exports.doCreate = (collection, data) =>
-  db.collection(collection).add({ ...data });
+  firestore.collection(collection).add({ ...data });
 
 exports.doCreateById = (collection, id, data) =>
-  db
+  firestore
     .collection(collection)
     .doc(id)
     .set({ ...data });
 
 exports.doGetById = (collection, id) =>
-  db
+  firestore
     .collection(collection)
     .doc(id)
     .get();
 
-exports.doGetCollectionRef = collection => db.collection(collection);
+exports.doGetCollectionRef = collection => firestore.collection(collection);
 
-exports.doGet = collection => db.collection(collection).get();
+exports.doGet = collection => firestore.collection(collection).get();
 
 exports.doGetOrderBy = (collection, field) =>
-  db
+  firestore
     .collection(collection)
     .orderBy(field)
     .get();
 
 exports.doDelete = (collection, id) =>
-  db
+  firestore
     .collection(collection)
     .doc(id)
     .delete();
 
 exports.doUpdate = (collection, data) =>
-  db
+  firestore
     .collection(collection)
     .doc(data.id)
     .set(data.data);
